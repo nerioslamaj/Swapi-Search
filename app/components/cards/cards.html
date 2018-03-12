@@ -1,0 +1,59 @@
+<div class="cards-wrapper">
+  <div ng-if="!details">
+    Loading results...
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6 col-xs-12 repeat" ng-repeat="data in details.results">
+      <div class="port-container">
+        <div class=port-info>
+          <h2>{{data.name}}</h2>
+          <div class="row">
+            <ul class="nav col-3">
+                <li class="nav-item"><a class="nav-link" href="#A{{$index}}" data-toggle="tab">Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="#B{{$index}}" data-toggle="tab">Films</a></li>
+                <li class="nav-item"><a class="nav-link" href="#C{{$index}}" data-toggle="tab">Vehicles</a></li>
+                <li class="nav-item"><a class="nav-link" href="#D{{$index}}" data-toggle="tab">Species</a></li>
+                <li class="nav-item"><a class="nav-link" href="#E{{$index}}" data-toggle="tab">Starships</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content col-9">
+                <div class="tab-pane fade" id="A{{$index}}">
+                  <p>Content inside tab A</p>
+                </div>
+                <div class="tab-pane fade" id="B{{$index}}">
+                  <p ng-repeat="film in data.films">{{film}}</p>
+                  <p ng-if="!data.films.length">
+                    No data
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="C{{$index}}">
+                  <p ng-repeat="vehicle in data.vehicles">{{vehicle}}</p>
+                  <p ng-if="!data.vehicles.length">
+                    No data
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="D{{$index}}">
+                  <p ng-repeat="species in data.species">{{species}}</p>
+                  <p ng-if="!data.species.length">
+                    No data
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="E{{$index}}">
+                  <p ng-repeat="starship in data.starships">{{starship}}</p>
+                  <p ng-if="!data.starships.length">
+                    No data
+                  </p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div style="background-image: url('images/{{element}}.jpg')" class=imazhi-child></div>
+      </div>
+    </div>
+
+  </div>
+</div>
