@@ -12,24 +12,25 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="components/card/card.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-controller="SwapiController">
   <div class="container">
+
     <search-bar></search-bar>
-    <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+
     <div ui-view></div>
-    <div class="prev-next" ng-if="maxPage > 1">
-      <button type="button" ng-model="page" name="button" ng-click="page = page - 1" ng-disabled="page <= 1">Previous</button>
-      <button type="button" ng-model="page" name="button" ng-click="page = page + 1" ng-disabled="page >= maxPage">Next</button>
-      <p>{{page}}</p>
-      <p>{{maxPage}}</p>
+
+    <div class="prev-next" ng-show="maxPage > 1">
+      <h3><button type="button" ng-model="page" name="button" ng-click="page = page - 1" ng-disabled="page <= 1">Previous </button></h3>
+      <h3> - </h3>
+      <h3><button type="button" ng-model="page" name="button" ng-click="page = page + 1" ng-disabled="page >= maxPage">Next</button></h3>
+      <h3 class="right"> <span>{{page}}</span> / <span>{{maxPage}}</span> </h3>
     </div>
+
   </div>
 
   <!-- In production use:

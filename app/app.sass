@@ -7,6 +7,16 @@ $dark3: #555
 %anime
   transition: all 0.3s
 
+h2
+  font: normal 24px 'Raleway'
+  letter-spacing: 8px
+  text-transform: uppercase
+  font-weight: 700
+
+h3
+  font: normal 40px 'Open Sans'
+  font-weight: 800
+
 
 body
   background-color: $dark1
@@ -43,3 +53,28 @@ body
     color: $secondary
     width: auto
     text-decoration: underline
+
+
+.prev-next
+  margin: 40px -8px
+  h3
+    display: inline
+    margin: 0
+    padding: 0
+    color: #222
+    button
+      background: none
+      border: none
+      margin: 0
+      padding: 0
+      @extend %anime
+    button:hover
+      color: $dark2
+      @extend %anime
+    button:focus
+      outline: none
+    button:disabled:hover,
+    button[disabled]:hover
+      color: #222
+  h3.right
+    float: right

@@ -17,22 +17,24 @@
       })
   });
 
-  app.controller('SwapiController', function($scope, $http){
-      $scope.$watchGroup(['search', 'element', 'page'], function() {
-        fetch();
-      });
-
-      $scope.page = 1;
-      $scope.element = 'planets';
-
-      function fetch(){
-        $http.get("https://swapi.co/api/" +  $scope.element + "/?search=" + $scope.search + "&page=" + $scope.page)
-        .then(function(response) {
-          $scope.details = response.data;
-          $scope.maxPage = $scope.details.count / 10;
-        });
-      }
+  app.controller('SwapiController', function($rootScope, $scope, $http){
+    $scope.$watchGroup(['search', 'element', 'page'], function() {
+      fetch();
     });
+
+    $scope.search = 'a';
+    $scope.search = '';
+    $scope.page = 1;
+    $scope.element = 'planets';
+
+    function fetch(){
+      $http.get("https://swapi.co/api/" +  $scope.element + "/?search=" + $scope.search + "&page=" + $scope.page)
+      .then(function(response) {
+        $scope.details = response.data;
+        $scope.maxPage = Math.ceil($scope.details.count / 10);
+      });
+    }
+  });
 
 
   app.directive('cards', function() {

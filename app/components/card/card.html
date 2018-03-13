@@ -1,4 +1,4 @@
-<div class="col-md-6 col-xs-12 repeat" ng-repeat="data in details.results">
+<div class="col-lg-12 col-xl-6 repeat" ng-repeat="data in details.results">
   <div class="port-container">
     <div class=port-info>
       <h2>{{data.name}}</h2>
@@ -6,12 +6,13 @@
         <ul class="nav nav-tabs col-3" role="tablist">
           <li class="nav-item"><a class="nav-link active" href="#A{{$index}}" data-toggle="tab">Details</a></li>
           <li class="nav-item"><a class="nav-link" href="#B{{$index}}" data-toggle="tab">Films</a></li>
-          <li class="nav-item"><a class="nav-link" href="#C{{$index}}" data-toggle="tab">Vehicles</a></li>
-          <li class="nav-item"><a class="nav-link" href="#D{{$index}}" data-toggle="tab">Species</a></li>
-          <li class="nav-item"><a class="nav-link" href="#E{{$index}}" data-toggle="tab">Starships</a></li>
+          <li ng-if="element=='planets'" class="nav-item"><a class="nav-link" href="#C{{$index}}" data-toggle="tab">Residents</a></li>
+          <li ng-if="element=='people'" class="nav-item"><a class="nav-link" href="#C{{$index}}" data-toggle="tab">Vehicles</a></li>
+          <li ng-if="element=='people'" class="nav-item"><a class="nav-link" href="#D{{$index}}" data-toggle="tab">Species</a></li>
+          <li ng-if="element=='people'" class="nav-item"><a class="nav-link" href="#E{{$index}}" data-toggle="tab">Starships</a></li>
         </ul>
         <div class="tab-content col-9">
-          <div class="tab-pane fade show active" id="A{{$index}}">
+          <div ng-if="element=='people'" class="tab-pane fade show active" id="A{{$index}}">
             <p>Height - <span>{{data.height}}</span></p>
             <p>Mass - <span>{{data.mass}}</span></p>
             <p>Hair Color - <span>{{data.hair_color}}</span></p>
@@ -20,26 +21,41 @@
             <p>Birth Year - <span>{{data.birth_year}}</span></p>
             <p>Gender - <span>{{data.gender}}</span></p>
           </div>
+          <div ng-if="element=='planets'" class="tab-pane fade show active" id="A{{$index}}">
+            <p>Rotation Period - <span>{{data.rotation_period}}</span></p>
+            <p>Orbital Period - <span>{{data.orbital_period}}</span></p>
+            <p>Diameter - <span>{{data.diameter}}</span></p>
+            <p>Climate - <span>{{data.climate}}</span></p>
+            <p>Gravity - <span>{{data.gravity}}</span></p>
+            <p>Surface Water - <span>{{data.surface_water}}</span></p>
+            <p>Population - <span>{{data.population}}</span></p>
+          </div>
           <div class="tab-pane fade" id="B{{$index}}">
-            <p ng-repeat="film in data.films">{{film}}</p>
+            <p ng-repeat="film in data.films"><a href="{{film}}" target="_blank">{{film}}</a></p>
             <p ng-if="!data.films.length">
               No data
             </p>
           </div>
-          <div class="tab-pane fade" id="C{{$index}}">
-            <p ng-repeat="vehicle in data.vehicles">{{vehicle}}</p>
+          <div ng-if="element=='planets'" class="tab-pane fade" id="C{{$index}}">
+            <p ng-repeat="resident in data.residents"><a href="{{resident}}" target="_blank">{{resident}}</a></p>
+            <p ng-if="!data.residents.length">
+              No data
+            </p>
+          </div>
+          <div ng-if="element=='people'" class="tab-pane fade" id="C{{$index}}">
+            <p ng-repeat="vehicle in data.vehicles"><a href="{{vehicle}}" target="_blank">{{vehicle}}</a></p>
             <p ng-if="!data.vehicles.length">
               No data
             </p>
           </div>
           <div class="tab-pane fade" id="D{{$index}}">
-            <p ng-repeat="species in data.species">{{species}}</p>
+            <p ng-repeat="species in data.species"><a href="{{species}}" target="_blank">{{species}}</a></p>
             <p ng-if="!data.species.length">
               No data
             </p>
           </div>
           <div class="tab-pane fade" id="E{{$index}}">
-            <p ng-repeat="starship in data.starships">{{starship}}</p>
+            <p ng-repeat="starship in data.starships"><a href="{{starship}}" target="_blank">{{starship}}</a></p>
             <p ng-if="!data.starships.length">
               No data
             </p>

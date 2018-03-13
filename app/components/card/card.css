@@ -1,6 +1,18 @@
-.cards-wrapper .repeat .port-container, .cards-wrapper .repeat .port-container .port-info .all-data ul.nav li.nav-item a.nav-link, .cards-wrapper .repeat .port-container .port-info .all-data ul.nav li.nav-item a.nav-link:hover, .cards-wrapper .repeat .port-container .imazhi-child, .cards-wrapper .repeat .port-container:hover, .cards-wrapper .repeat .port-container:hover .imazhi-child {
+.cards-wrapper .repeat .port-container, .cards-wrapper .repeat .port-container .port-info .all-data ul.nav li.nav-item a.nav-link, .cards-wrapper .repeat .port-container .port-info .all-data ul.nav li.nav-item a.nav-link:hover, .cards-wrapper .repeat .port-container .port-info .all-data .tab-pane p a, .cards-wrapper .repeat .port-container .port-info .all-data .tab-pane p a:hover, .cards-wrapper .repeat .port-container .imazhi-child, .cards-wrapper .repeat .port-container:hover, .cards-wrapper .repeat .port-container:hover .imazhi-child {
   transition: all 0.3s; }
 
+@keyframes load {
+  0% {
+    fill: #191919; }
+  50% {
+    fill: #222; }
+  100% {
+    fill: #191919; } }
+.cards-wrapper svg {
+  animation: load 0.6s infinite;
+  display: block;
+  width: 40%;
+  margin: 0 auto; }
 .cards-wrapper .repeat {
   padding-top: 30%; }
   .cards-wrapper .repeat .port-container {
@@ -24,11 +36,7 @@
       width: 100%;
       height: 100%; }
       .cards-wrapper .repeat .port-container .port-info h2 {
-        font: normal 24px "Raleway";
-        color: white;
-        letter-spacing: 8px;
-        text-transform: uppercase;
-        font-weight: 700; }
+        color: white; }
       .cards-wrapper .repeat .port-container .port-info .all-data {
         margin-top: 44px; }
         .cards-wrapper .repeat .port-container .port-info .all-data ul.nav {
@@ -66,6 +74,11 @@
           .cards-wrapper .repeat .port-container .port-info .all-data .tab-pane p span {
             font-weight: 600;
             color: #ffd200; }
+          .cards-wrapper .repeat .port-container .port-info .all-data .tab-pane p a {
+            color: #7f7f7f;
+            text-decoration: none; }
+          .cards-wrapper .repeat .port-container .port-info .all-data .tab-pane p a:hover {
+            color: #ffd200; }
     .cards-wrapper .repeat .port-container .imazhi-child {
       position: absolute;
       top: 0;
@@ -81,6 +94,6 @@
     box-shadow: 0 10px 32px rgba(0, 0, 0, 0.6);
     transform: translateY(-1px); }
     .cards-wrapper .repeat .port-container:hover .imazhi-child {
-      transform: scale(1.08); }
+      transform: scale(1.06); }
 
-/*# sourceMappingURL=cards.css.map */
+/*# sourceMappingURL=card.css.map */
