@@ -22,9 +22,8 @@
         fetch();
       });
 
-      $scope.search = 'a';
       $scope.page = 1;
-      $scope.element = 'people';
+      $scope.element = 'planets';
 
       function fetch(){
         $http.get("https://swapi.co/api/" +  $scope.element + "/?search=" + $scope.search + "&page=" + $scope.page)
@@ -34,4 +33,20 @@
         });
       }
     });
+
+
+  app.directive('cards', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'components/card/card.html',
+      replace: true
+    }
+  });
+
+  app.directive('searchBar', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'components/search/search.html'
+    }
+  });
 })();

@@ -12,39 +12,24 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="components/cards/cards.css">
+  <link rel="stylesheet" href="components/card/card.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-controller="SwapiController">
   <div class="container">
-    <ul class="menu">
-      <li><a href="#!/view1">view1</a></li>
-      <li><a href="#!/view2">view2</a></li>
-    </ul>
-
-    <div class="input-group search-bar">
-      <span>Show me all the </span>
-      <select name="element" ng-model="element" ng-model-options="{ debounce: 500 }">
-        <option value="people">People</option>
-        <option value="films">Films</option>
-        <option value="starships">Starships</option>
-        <option value="vehicles">Vehicles</option>
-        <option value="species">Species</option>
-        <option value="planets">Planets</option>
-      </select>
-      <input type="text" ng-model="search" ng-model-options="{ debounce: 500 }" placeholder="Enter full movie name" autofocus />
+    <search-bar></search-bar>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div ui-view></div>
+    <div class="prev-next" ng-if="maxPage > 1">
       <button type="button" ng-model="page" name="button" ng-click="page = page - 1" ng-disabled="page <= 1">Previous</button>
       <button type="button" ng-model="page" name="button" ng-click="page = page + 1" ng-disabled="page >= maxPage">Next</button>
       <p>{{page}}</p>
       <p>{{maxPage}}</p>
     </div>
-
-    <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <div ui-view></div>
   </div>
 
   <!-- In production use:

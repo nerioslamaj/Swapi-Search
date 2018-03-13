@@ -1,7 +1,37 @@
 body {
   background-color: #181818; }
 
-ul.nav {
-  display: block; }
+.search-bar {
+  margin: 100px 0;
+  font: normal 40px "Open Sans";
+  font-weight: 800;
+  color: #555; }
+  .search-bar select, .search-bar input {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    outline: none;
+    color: #ffd200;
+    text-decoration: underline;
+    text-transform: lowercase;
+    appearance: none; }
+  .search-bar select {
+    margin-left: 8px;
+    margin-right: 8px; }
+    .search-bar select option {
+      color: #555;
+      background-color: #333;
+      outline: none;
+      border: none; }
+    .search-bar select option:hover {
+      box-shadow: 0 0 10px 100px #aaa inset; }
+  .search-bar select::-ms-expand {
+    display: none; }
+  .search-bar input::placeholder {
+    border-bottom: 4px solid;
+    color: #776205;
+    width: auto;
+    text-decoration: underline; }
 
 /*# sourceMappingURL=app.css.map */

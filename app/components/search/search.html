@@ -1,0 +1,10 @@
+<div class="input-group search-bar">
+  <span>Show all the </span>
+  <select name="element" ng-model="element" ng-model-options="{ debounce: 500 }">
+    <option value="people"> People</option>
+    <option value="planets">Planets</option>
+  </select>
+  <span> which their name contains</span>
+  <input type="text" ng-model="search" ng-model-options="{ debounce: 500 }" value="a" placeholder="'input string'" autofocus />
+  <span></span>
+</div>
