@@ -65,7 +65,7 @@
               color: #ffd200; }
         .cards-wrapper .repeat .port-container .port-info .all-data .tab-pane p {
           letter-spacing: 2px;
-          font: normal 14px "Raleway";
+          font: normal 14px 'Arial', sans-serif;
           font-weight: 400;
           text-transform: uppercase;
           color: #7f7f7f;

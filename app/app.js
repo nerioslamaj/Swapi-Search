@@ -28,7 +28,7 @@
     $scope.element = 'planets';
 
     function fetch(){
-      $http.get("https://swapi.co/api/" +  $scope.element + "/?search=" + $scope.search + "&page=" + $scope.page)
+      $http.get("https://swapi.dev/api/" +  $scope.element + "/?search=" + $scope.search + "&page=" + $scope.page)
       .then(function(response) {
         $scope.details = response.data;
         $scope.maxPage = Math.ceil($scope.details.count / 10);
